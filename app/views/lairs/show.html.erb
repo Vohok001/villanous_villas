@@ -1,3 +1,4 @@
+<p style="color: green"><%= notice %></p>
 <h1>This is the SHOW Page</h1>
 <div>
   <p> <%= @lair.name %></p>
@@ -5,6 +6,13 @@
   <p> <%= @lair.location %></p>
   <p> <%=  @lair.rating %></p>
   <p> <%= @lair.price_per_night %></p>
+</div>
+
+<div>
+  <%= link_to "Edit this lair", edit_lair_path(@lair) %> |
+  <%= link_to "Back to lairs", lairs_path %>
+
+  <%= button_to "Destroy this lair", @lair, method: :delete %>
 </div>
 
 <button class= "btn btn-primary">This does nothing!</button>
