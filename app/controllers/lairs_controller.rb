@@ -1,13 +1,13 @@
 class LairsController < ApplicationController
-  before_action :set_lair, only: %i[ show edit update destroy ]
 
-  # GET /lairs or /lairs.json
+  before_action :set_lair, only: %i[ show edit update destroy ]
   def index
     @lairs = Lair.all
   end
 
   # GET /lairs/1 or /lairs/1.json
   def show
+    @lair = Lair.find(params[:id])
   end
 
   # GET /lairs/new
@@ -45,4 +45,5 @@ class LairsController < ApplicationController
     def lair_params
       params.require(:lair).permit(:name, :description, :location, :max_guests, :price_per_night, :rating )
     end
+
 end
