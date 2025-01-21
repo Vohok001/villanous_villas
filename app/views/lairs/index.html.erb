@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Lairs</h1>
+
+<div id="lairs">
+  <% @lairs.each do |lair| %>
+    <%= render lair %>
+    <p>
+      <%= link_to "Show this lair", lair %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New lair", new_lair_path %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @lair %>
+
+<div>
+  <%= link_to "Edit this lair", edit_lair_path(@lair) %> |
+  <%= link_to "Back to lairs", lairs_path %>
+
+  <%= button_to "Destroy this lair", @lair, method: :delete %>
+</div>
