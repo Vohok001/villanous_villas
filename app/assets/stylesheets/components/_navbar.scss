@@ -6,12 +6,33 @@
   height: 56px;
   color: white;
   width: 100%;
+  text-align: center;
+}
+
+.page-title h1 {
+  font-family: "Metal Mania";
 }
 
 .page-title {
-
+  background: linear-gradient(45deg, #affc41, #add766, #affc41, #add766);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(36, 255, 83, 0.5);
+  background-size: 150%;
+  animation: shimmerGradient 2s infinite alternate-reverse;
 }
 
+@keyframes shimmerGradient {
+  0% {
+    background-position: -200% -200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
 // .navbar-lewagon .navbar-collapse {
 //   flex-grow: 0;
 // }
@@ -27,6 +48,7 @@
 }
 
 .menu {
+  text-decoration: none;
   position: absolute;
   top: 10px; /* Positions near the top */
   right: 10px;
