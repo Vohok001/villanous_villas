@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="video-container">
+  <video autoplay muted loop id="bg-video">
+    <source src="<%= asset_path('haunted_bg_2.mp4') %>" type="video/mp4">
+  </video>
+
+  <div class="overlay-content">
+    <h1>Villainous Villas</h1>
+    <p>Because every villain deserves a lair that screams ‘I’m better than you.’</p>
+    <%= link_to "Explore Lairs", "#", class: "btn", id: "click-me" %>
+  </div>
+</div>
