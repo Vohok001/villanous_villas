@@ -1,4 +1,4 @@
-<div class="video-container">
+<div class="video-container" data-controller="button-sound">
   <video autoplay muted loop id="bg-video">
     <source src="<%= asset_path('haunted_bg_2.mp4') %>" type="video/mp4">
   </video>
@@ -6,6 +6,10 @@
   <div class="overlay-content">
     <h1>Villainous Villas</h1>
     <p>Because every villain deserves a lair that screams ‘I’m better than you.’</p>
-    <%= link_to "Explore Lairs", "#", class: "btn", id: "click-me" %>
+       <%= link_to "Explore Lairs", "#", class: "btn", id: "click-me",
+      data: { "audio-path": asset_path('evil_laugh.mp3'),
+              action: "click->button-sound#play",
+              buttonSoundTarget: "btn" } %>
+
   </div>
 </div>
