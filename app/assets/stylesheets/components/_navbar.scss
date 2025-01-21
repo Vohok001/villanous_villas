@@ -1,12 +1,64 @@
-.navbar-lewagon {
+.navbar {
+  display: flex;
   justify-content: space-between;
-  background: white;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  height: 56px;
+  color: white;
+  width: 100%;
+  text-align: center;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.page-title h1 {
+  font-family: "Metal Mania";
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.page-title {
+  background: linear-gradient(45deg, #affc41, #add766, #affc41, #add766);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(36, 255, 83, 0.5);
+  background-size: 150%;
+  animation: shimmerGradient 2s infinite alternate-reverse;
+}
+
+@keyframes shimmerGradient {
+  0% {
+    background-position: -200% -200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+.navbar-logo {
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.logo {
+  height: 40px;
+}
+
+.menu {
+  text-decoration: none;
+  position: absolute;
+  top: 10px; /* Positions near the top */
+  right: 10px;
+  z-index: 1010; /* Ensures it stays above the image */
+}
+
+.menu ul {
+  list-style: none; /* Removes default bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Aligns menu items horizontally */
+  gap: 15px; /* Spacing between items */
 }
