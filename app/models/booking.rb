@@ -14,8 +14,10 @@ class Booking < ApplicationRecord
       check_in = Date.parse(check_in.to_s)
       check_out = Date.parse(check_out.to_s)
 
-    if check_out <= check_in
-      errors.add(:check_out, "must be after the check-in date")
+      if check_out <= check_in
+        errors.add(:check_out, "must be after the check-in date")
+      end
     end
   end
 end
+
