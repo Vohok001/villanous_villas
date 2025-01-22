@@ -4,3 +4,50 @@
 @import "form_legend_clear";
 @import "navbar";
 @import "homepage";
+@import "show";
+
+.index-container {
+  text-align: center;
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.lairs-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  width: 100%;
+  padding: 0 1rem;
+  max-width: 1200px;
+}
+
+.lair-card {
+  position: relative;
+  background-color: black;
+  border: 1px solid #affc41;
+  max-width: 450px;
+  margin: 0 10px;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(174, 252, 65, 0.7), 0 0 20px rgba(255, 105, 208, 0.7), 0 0 40px rgba(255, 105, 208, 0.7);
+}
+
+.lair-card h2 {
+  font-family: 'Amarante';
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.lair-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
