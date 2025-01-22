@@ -1,6 +1,7 @@
 class LairsController < ApplicationController
-
   before_action :set_lair, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ new create edit update destroy ]
+
   def index
     @lairs = Lair.all
   end
@@ -23,11 +24,17 @@ class LairsController < ApplicationController
   def create
     @lair = Lair.new(lair_params)
     @lair.user = current_user
-    @lair.save!
+    if @lair.save!
+      redirect_to lair_path(@lair)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /lairs/1 or /lairs/1.json
   def update
+    @lair.update!(lair_params)
+    redirect_to lair_path(@lair)
   end
 
   # DELETE /lairs/1 or /lairs/1.json
@@ -36,14 +43,14 @@ class LairsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_lair
-      @lair = Lair.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def lair_params
-      params.require(:lair).permit(:name, :description, :location, :max_guests, :price_per_night, :rating )
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_lair
+    @lair = Lair.find(params[:id])
+  end
 
+  # Only allow a list of trusted parameters through.
+  def lair_params
+    params.require(:lair).permit(:name, :description, :location, :max_guests, :price_per_night, :rating )
+  end
 end

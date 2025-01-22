@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /bookings or /bookings.json
   def index
@@ -16,10 +17,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  # GET /bookings/1/edit
-  def edit
-  end
-
   # POST /bookings or /bookings.json
   def create
     @booking = Booking.new(booking_params)
@@ -33,9 +30,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  # GET /bookings/1/edit
+  def edit
+  end
+
+
   # PATCH/PUT /bookings/1 or /bookings/1.json
   def update
-
+    @booking.update(booking_params)
+    redirect_to lair_path(@booking.lair)
   end
 
   # DELETE /bookings/1 or /bookings/1.json
