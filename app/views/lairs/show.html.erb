@@ -7,12 +7,13 @@
     <p> <strong>Lair info:</strong> <%= @lair.description %></p>
     <p> <strong>Max occupancy:</strong> <%= @lair.max_guests %></p>
     <p> <strong>Location:</strong> <%= @lair.location %></p>
-    <% unless @lair.rating == 0 do %>
+    <% if @lair.rating %>
     <p> <strong>Rating:</strong> <%= '⭐️' * @lair.rating %></p>
     <% end %>
     <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>
   </div>
 
+<%= link_to "Book this lair", new_lair_booking_path(@lair) %> |
 <% if current_user == @lair.user %>
   <div class="show-btns">
     <%= link_to "Edit this lair", edit_lair_path(@lair) %> |
