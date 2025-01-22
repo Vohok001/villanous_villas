@@ -1,10 +1,11 @@
 <div class="show-container">
   <p style="color: green"><%= notice %></p>
-  <h1>This is the SHOW Page</h1>
   <div class="show-card">
     <%= image_tag "#{default_lair_image(@lair.name)}" %>
-    <h2> <%= @lair.name %></h2>
-    <p> <%= @lair.description %></p>
+    <h1> <%= @lair.name %></h1>
+    <h3><%= @lair.tagline %></h3>
+    <p> <strong>Lair info:</strong> <%= @lair.description %></p>
+    <p> <strong>Max occupancy:</strong> <%= @lair.max_guests %></p>
     <p> <strong>Location:</strong> <%= @lair.location %></p>
     <p> <strong>Rating:</strong> <%= '⭐️' * @lair.rating %></p>
     <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>
@@ -16,4 +17,3 @@
     <%= button_to "Destroy this lair", @lair, method: :delete %>
   </div>
 </div>
-
