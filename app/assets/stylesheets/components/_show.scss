@@ -1,0 +1,19 @@
+.show-container{
+  width:  900px;
+  margin: auto;
+  margin-top: 100px;
+  align-items: center;
+  overflow: hidden;
+  img{
+    height: 500px;
+  }
+}
+.show-card{
+  width: 100%;
+  margin-bottom: 100px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  p{
+    font-size: 20px;
+  }
+}
