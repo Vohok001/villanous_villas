@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :lairs, class_name: "Lair", dependent: :destroy
 
   # Rented lairs
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :rented_lairs, through: :bookings, source: :lair
 end
