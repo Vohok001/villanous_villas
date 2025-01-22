@@ -6,7 +6,7 @@
   <div class="overlay-content">
     <h1>Villainous Villas</h1>
     <p>Because every villain deserves a lair that screams ‘I’m better than you.’</p>
-       <%= link_to "Explore Lairs", "#", class: "btn", id: "click-me",
+       <%= link_to "Explore Lairs", lairs_path, class: "btn", id: "click-me",
       data: { "audio-path": asset_path('evil_laugh.mp3'),
               action: "click->button-sound#play",
               buttonSoundTarget: "btn" } %>
