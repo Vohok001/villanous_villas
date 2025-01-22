@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgb(0, 0, 0);
+  background: #0f0e37;
   height: 56px;
   color: white;
   width: 100%;
@@ -23,6 +23,7 @@
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(36, 255, 83, 0.5);
   background-size: 150%;
   animation: shimmerGradient 2s infinite alternate-reverse;
+  margin-right: 40px;
 }
 
 @keyframes shimmerGradient {
@@ -48,9 +49,7 @@
 }
 
 .menu {
-  text-decoration: none;
   position: absolute;
-  top: 10px; /* Positions near the top */
   right: 10px;
   z-index: 1010; /* Ensures it stays above the image */
 }

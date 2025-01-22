@@ -15,9 +15,23 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: "Glass Antiqua";
+  background-color: #020d1e;
+  color: white;
 }
 
-// h1 {
-//   font-family: "Amarante";
-// }
+h1 {
+  font-family: "Amarante";
+}
+
+a {
+  text-decoration: none;
+  color: #affc41;
+  text-shadow: 0 0 4px rgba(174, 215, 102, 0.722);
+}
+
+a:hover {
+  color: #ff69d0;
+  text-shadow: 0 0 4px #ff26ba9e;
+}

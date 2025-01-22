@@ -6,6 +6,7 @@
 <h1>Lairs:</h1>
 
 <% @lairs.each do |lair| %>
+<%= image_tag "#{default_lair_image(lair.name)}", class: "lair-image" %>
 <%= link_to lair_path(lair) do %>
   <h2><%= lair.name %></h2>
 <% end %>
