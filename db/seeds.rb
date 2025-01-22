@@ -9,6 +9,8 @@
 #  Property.destroy_all
 
 # Villains Data
+User.destroy_all
+
 users = User.create!([
   { email: "drevil@volcano.com", password: "lava1234" },
   { email: "vader@empire.gov", password: "darkside123" },

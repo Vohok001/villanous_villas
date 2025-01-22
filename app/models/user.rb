@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   # Owned lairs
-  has_many :lairs, foreign_key: :owner_id, class_name: "Lair"
+  has_many :lairs, class_name: "Lair", dependent: :destroy
 
   # Rented lairs
   has_many :bookings
