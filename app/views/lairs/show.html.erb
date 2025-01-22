@@ -7,7 +7,9 @@
     <p> <strong>Lair info:</strong> <%= @lair.description %></p>
     <p> <strong>Max occupancy:</strong> <%= @lair.max_guests %></p>
     <p> <strong>Location:</strong> <%= @lair.location %></p>
-    <p> <strong>Rating:</strong> <%= '⭐️' * @lair.rating %></p>
+    <% if @lair.rating %>
+      <p> <strong>Rating:</strong> <%= @lair.rating %></p>
+    <% end %>
     <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>
   </div>
 

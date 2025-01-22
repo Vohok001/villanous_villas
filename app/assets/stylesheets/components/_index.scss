@@ -18,7 +18,9 @@
 .lairs-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
   width: 100%;
   padding: 0 1rem;
   max-width: 1200px;
@@ -28,9 +30,11 @@
   position: relative;
   background-color: black;
   border: 1px solid #affc41;
-  max-width: 345px;
+  max-width: 450px;
   margin: 0 10px;
   text-align: center;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(174, 252, 65, 0.7), 0 0 20px rgba(255, 105, 208, 0.7), 0 0 40px rgba(255, 105, 208, 0.7);
 }
 
 .lair-card h2 {
@@ -47,4 +51,3 @@
   height: 200px;
   object-fit: cover;
 }
-
