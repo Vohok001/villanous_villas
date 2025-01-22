@@ -25,7 +25,8 @@ users = User.create!([
   { email: "frostbite@glacierpalace.com", password: "coldhearted" },
   { email: "solaris@celestialtower.com", password: "burnbright" },
   { email: "nebula@cosmicobservatory.com", password: "cosmicgaze" },
-  { email: "apex@skyfortress.com", password: "highflyer" }
+  { email: "apex@skyfortress.com", password: "highflyer" },
+  { email: "test@test.com", password: "password" }
 ])
 
 # Properties Data
