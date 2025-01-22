@@ -10,10 +10,10 @@
     <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>
   </div>
 
-
+<% if current_user == @lair.user %>
   <div class="show-btns">
     <%= link_to "Edit this lair", edit_lair_path(@lair) %> |
-    <%= button_to "Destroy this lair", @lair, method: :delete %>
+    <%= link_to "Destroy this lair", @lair, data: { turbo_method: :delete } %>
   </div>
+<% end %>
 </div>
-
