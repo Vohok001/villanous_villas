@@ -1,18 +1,18 @@
 module ApplicationHelper
   def default_lair_image(lair_name)
     default_images = {
-      "Volcano Lair" => "volcano-lair.jpg",
-      "Fortress Vader" => "fortress-2.jpg",
-      "Abandoned Amusement Park" => "fun-house.jpg",
-      "Asteroid M" => "asteroid-m.jpg",
-      "Barad-dûr" => "barad-dur.jpg",
-      "Snake Mountain" => "snake-mountain.jpg",
-      "Bowser's Castle" => "bowsers-castle.jpg",
-      "Oscorp Penthouse" => "oscorp-penthouse.jpg",
-      "Malfoy Manor" => "malfoy-manor.jpg",
-      "Technodrome" => "technodrome.jpg"
+      "Volcano Lair" => image_path("volcano-lair.jpg"),
+      "Fortress Vader" => image_path("fortress-2.jpg"),
+      "Abandoned Amusement Park" => image_path("fun-house.jpg"),
+      "Asteroid M" => image_path("asteroid-m.jpg"),
+      "Barad-dûr" => image_path("barad-dur.jpg"),
+      "Snake Mountain" => image_path("snake-mountain.jpg"),
+      "Bowser's Castle" => image_path("bowsers-castle.jpg"),
+      "Oscorp Penthouse" => image_path("oscorp-penthouse.jpg"),
+      "Malfoy Manor" => image_path("malfoy-manor.jpg"),
+      "Technodrome" => image_path("technodrome.jpg")
     }
 
-    default_images[lair_name] || "lair-placeholder.jpg"
+    default_images[lair_name] || image_path("lair-placeholder.jpg")
   end
 end
