@@ -1,14 +1,19 @@
-
+<div class="index-container">
 <p style="color: green"><%= notice %></p>
 
-<%= link_to "New lair", new_lair_path %>
+<%# <%= link_to "New lair", new_lair_path %> 
 
-<h1>Lairs:</h1>
-
-<% @lairs.each do |lair| %>
-<%= image_tag "#{default_lair_image(lair.name)}", class: "lair-image" %>
-<%= link_to lair_path(lair) do %>
-  <h2><%= lair.name %></h2>
-<% end %>
-  <p><%= lair.description %></p>
-<% end %>
+<div class="lairs-container">
+  <% @lairs.each do |lair| %>
+    <div class="lair-card">
+      <div class="image-container">
+        <%=  image_tag "#{default_lair_image(lair.name)}", class: "lair-image" %>
+      </div>
+    <%= link_to lair_path(lair) do %>
+      <h2><%= lair.name %></h2>
+    <% end %>
+      <p><%= lair.description %></p>
+    </div>
+  <% end %>
+  </div>
+</div>
