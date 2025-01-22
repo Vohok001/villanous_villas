@@ -40,6 +40,7 @@ class LairsController < ApplicationController
   # DELETE /lairs/1 or /lairs/1.json
   def destroy
     @lair.destroy!
+    redirect_to lairs_path
   end
 
   private
