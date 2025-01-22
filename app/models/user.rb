@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
   # Owned lairs
   has_many :lairs, class_name: "Lair", dependent: :destroy
@@ -8,10 +10,4 @@ class User < ApplicationRecord
   # Rented lairs
   has_many :bookings
   has_many :rented_lairs, through: :bookings, source: :lair
-
-  # has_many :lairs, dependent: :destroy, class_name: "Lair"
-  # has_many :bookings
-  # has_many :lairs, through: :bookings, source: :lair
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
 end
