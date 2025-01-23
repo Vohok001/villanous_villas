@@ -1,5 +1,6 @@
 <div class="show-container">
   <p style="color: green"><%= notice %></p>
+<<<<<<< HEAD
   <div class="show-card">
     <h1> <%= @lair.name %></h1>
 
@@ -70,3 +71,10 @@
     <%= link_to "Destroy this lair", @lair, data: { turbo_method: :delete } %>
   </div>
 <% end %>
+=======
+</div>
+
+<div data-controller="update-form" >
+  <%= render 'updated_show', lair: @lair %>
+</div>
+>>>>>>> 7e52f5d6782adb92448dcaaa5f08317039b7328f

@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
 
   validates :check_in, presence: true
   validates :check_out, presence: true
+  validates :rating, allow_nil: true, numericality: { only_integer: true, in: 0..5 }
 
   validate :check_out_after_check_in
 
