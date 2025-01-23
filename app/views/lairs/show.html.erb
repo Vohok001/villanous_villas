@@ -2,7 +2,28 @@
   <p style="color: green"><%= notice %></p>
   <div class="show-card">
     <h1> <%= @lair.name %></h1>
-    <%= image_tag "#{default_lair_image(@lair.name)}"%>
+
+    <div class="show-img-carousel" data-controller="carousel">
+      <section class="show-carousel" aria-label="Hero Carousel">
+        <div class="show_viewport" data-carousel-target="viewport">
+          <div class="show_slide" id="slide1" data-carousel-target="slide">
+            <img src="/assets/Vader-1.jpg" alt="Lair 1" class="carousel-image">
+          </div>
+          <div class="show_slide" id="slide2" data-carousel-target="slide">
+            <img src="/assets/Vader-2.jpg" alt="Lair 2" class="carousel-image">
+          </div>
+          <div class="show_slide" id="slide3" data-carousel-target="slide">
+            <img src="/assets/Vader-3.jpg" alt="Lair 3" class="carousel-image">
+          </div>
+          <div class="show_slide" id="slide4" data-carousel-target="slide">
+            <img src="/assets/Vader-4.jpg" alt="Lair 4" class="carousel-image">
+          </div>
+        </div>
+        <a href="#" class="show__prev" data-action="carousel#prev" aria-label="Previous Slide">❮</a>
+        <a href="#" class="show__next" data-action="carousel#next" aria-label="Next Slide">❯</a>
+      </section>
+    </div>
+    <%# <%= image_tag "#{default_lair_image(@lair.name)}"%> 
     <h3><%= @lair.tagline %></h3>
     <p> <strong>Lair info:</strong> <%= @lair.description %></p>
     <p> <strong>Max occupancy:</strong> <%= @lair.max_guests %></p>
@@ -13,11 +34,15 @@
     <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>
   </div>
 
+
+
+
+</div>
 <%= link_to "Book this lair", new_lair_booking_path(@lair) %> |
+
 <% if current_user == @lair.user %>
   <div class="show-btns">
     <%= link_to "Edit this lair", edit_lair_path(@lair) %> |
     <%= link_to "Destroy this lair", @lair, data: { turbo_method: :delete } %>
   </div>
 <% end %>
-</div>
