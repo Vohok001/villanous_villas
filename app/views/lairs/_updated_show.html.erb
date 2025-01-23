@@ -9,11 +9,11 @@
         <%if @lair.images.length > 1  %>
           <% @lair.images.each_with_index do |image, index| %>
             <div class="carousel__slide" data-carousel-target="slide" id="slide<%= index + 1 %>">
-              <%= cl_image_path lair.image.key %>
+              <%= cl_image_tag image.key %>
             </div>
           <% end %>
         <% elsif @lair.images.length == 1 %>
-          <%= cl_tag %>
+          <%= cl_image_tag @lair.images.first.key %>
         <% else %>
           <%= image_tag("lair-placeholder.jpg") %>
         <% end %>

@@ -1,7 +1,7 @@
 
 <div class="form-lair" data-toggle-target='form' >
   <%= simple_form_for @lair, data: {update_form_target: 'form', action: 'submit->update-form#update' } do |f| %>
-  
+
     <div class="d-flex justify-content-center">
       <div class="row g-4 col-6 d-flex flex-column">
         <%= f.label :name %>
@@ -18,18 +18,8 @@
         <%= f.text_field :location %>
         <%= f.text_field :max_guests %>
         <%= f.number_field :price_per_night %>
-        <%= f.input :photo, as: :file, label: false %>
-        <div data-controller="add-photo">
-          <div data-add-photo-target="photoList">
-            <%= f.input :photo, as: :file, label: false %>
-          </div>
-          <template data-add-photo-target="photoTemplate">
-            <div>
-              <%= f.input :photo, as: :file, label: false %>
-            </div>
-          </template>
-          <button type="button" class="btn btn-secondary" data-action="add-photo#addPhoto">Add another photo</button>
-        </div>
+        <%= f.input :images, as: :file, input_html: {multiple: true}, label: false %>
+
       </div>
       </div>
 
