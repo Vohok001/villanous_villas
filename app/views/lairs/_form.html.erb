@@ -1,14 +1,30 @@
+<div class="form-lair">
+  <%= simple_form_for(@lair) do |f| %>
 
-<%= simple_form_for(@lair) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :max_guests %>
-  <%= f.text_field :max_guests %>
-  <%= f.label :price_per_night %>
-  <%= f.number_field :price_per_night %>
-  <%= f.submit %>
-<% end %>
+    <div class="d-flex justify-content-center">
+      <div class="row g-4 col-6 d-flex flex-column">
+        <%= f.label :name %>
+        <%= f.label :description %>
+        <%= f.label :location %>
+        <%= f.label :max_guests %>
+        <%= f.label :price_per_night %>
+        <%= f.label :photo %>
+      </div>
+
+      <div class="row g-3 col-6">
+        <%=  f.text_field :name %>
+        <%= f.text_field :description %>
+        <%= f.text_field :location %>
+        <%= f.text_field :max_guests %>
+        <%= f.number_field :price_per_night %>
+        <%= f.input :photo, as: :file, label: false %>
+      </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <%= f.submit "Create Lair", class: "form-btn"%>
+    </div>
+
+  <% end %>
+</div>

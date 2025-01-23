@@ -12,8 +12,13 @@
     <%= link_to lair_path(lair) do %>
       <h2><%= lair.name %></h2>
     <% end %>
-      <p><%= lair.description %></p>
+      <p><%= lair.tagline %></p>
     </div>
   <% end %>
   </div>
 </div>
+
+
+<% if user_signed_in? %>
+  <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %>
+<% end %>

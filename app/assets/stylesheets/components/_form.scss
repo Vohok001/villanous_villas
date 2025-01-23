@@ -1,0 +1,41 @@
+.form-new{
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(174, 252, 65, 0.7), 0 0 20px rgba(255, 105, 208, 0.7), 0 0 40px rgba(255, 105, 208, 0.7);
+  margin-top: 100px;
+
+  h1 {
+    padding-bottom: 35px;
+  }
+}
+.form-btn input[type="submit"] {
+  color: greenyellow;
+}
+
+.form-btn{
+  all: unset ;
+  width: 30%;
+  margin: auto;
+  margin-top: 35px;
+  padding: 10px 10px;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out;
+
+  --btn-glow-color: greenyellow;
+  color: var(--btn-glow-color);
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--btn-glow-color), 0px 0px 0.5em 0px var(--btn-glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--btn-glow-color), 0px 0px 0.5em 0px var(--bnt-glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--btn-glow-color), 0px 0px 0.5em 0px var(--btn-glow-color);
+  animation: border-flicker 2s linear infinite;
+
+  &:hover {
+    color: black;
+    background-color: var(--btn-glow-color);
+    box-shadow: 0 0 2em 0.2em var(--btn-glow-color);
+    transition: opacity 100ms linear;
+  }
+}
