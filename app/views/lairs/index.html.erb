@@ -9,7 +9,7 @@
 <div class="index-container">
   <p style="color: green"><%= notice %></p>
 
-  <div class="lairs-container">
+  <div id="lair-results" class="lairs-container" data-target="search.results">
     <% @lairs.each do |lair| %>
       <%= link_to lair_path(lair) do %>
         <div class="lair-card">
@@ -23,4 +23,3 @@
     <% end %>
   </div>
 </div>
-
