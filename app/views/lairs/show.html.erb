@@ -1,13 +1,13 @@
 <div class="show-container">
   <p style="color: green"><%= notice %></p>
   <div class="show-card">
-    <%= image_tag "#{default_lair_image(@lair.name)}" %>
     <h1> <%= @lair.name %></h1>
+    <%= image_tag "#{default_lair_image(@lair.name)}"%>
     <h3><%= @lair.tagline %></h3>
     <p> <strong>Lair info:</strong> <%= @lair.description %></p>
     <p> <strong>Max occupancy:</strong> <%= @lair.max_guests %></p>
     <p> <strong>Location:</strong> <%= @lair.location %></p>
-    <% unless @lair.rating == 0 do %>
+    <% if @lair.rating %>
     <p> <strong>Rating:</strong> <%= '⭐️' * @lair.rating %></p>
     <% end %>
     <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>

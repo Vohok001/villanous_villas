@@ -1,8 +1,10 @@
-<h1>Editing lair</h1>
+<div class="form-new">
+  <h1>Editing lair</h1>
 
-<%= render "form", lair: @lair %>
+  <%= render "form", lair: @lair %>
 
-<div>
-  <%= link_to "Show this lair", lair_path %> |
-  <%= link_to "Back to lairs", lairs_path %>
+  <div class="mt-2" >
+    <%= link_to "Show this lair", lair_path %> |
+    <%= link_to "Back to lairs", lairs_path %>
+  </div>
 </div>
