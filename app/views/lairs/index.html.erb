@@ -1,20 +1,26 @@
 <%= render 'lairs/banner' %>
 
-<div class="index-container">
-<p style="color: green"><%= notice %></p>
-
-<div class="lairs-container">
-  <% @lairs.each do |lair| %>
-    <%= link_to lair_path(lair) do %>
-      <div class="lair-card">
-        <div class="image-container">
-          <%=  image_tag default_lair_image(lair.name), class: "lair-image" %>
-        </div>
-        <h2><%= lair.name %></h2>
-        <p><%= lair.tagline %></p>
-      </div>
-    <% end %>
+<div class="search-bar">
+  <%= form_with url: lairs_path, method: :get, class: "d-flex", data: { controller: "search", action: "input->search#search", search_url: lairs_path } do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search for a lair", data: { search_target: "query" } %>
   <% end %>
+</div>
+
+<div class="index-container">
+  <p style="color: green"><%= notice %></p>
+
+  <div id="lair-results" class="lairs-container" data-target="search.results">
+    <% @lairs.each do |lair| %>
+      <%= link_to lair_path(lair) do %>
+        <div class="lair-card">
+          <div class="image-container">
+            <%=  image_tag default_lair_image(lair.name), class: "lair-image" %>
+          </div>
+          <h2><%= lair.name %></h2>
+          <p><%= lair.tagline %></p>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
