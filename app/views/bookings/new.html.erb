@@ -1,9 +1,13 @@
-<h1>New booking</h1>
+<div class="page-container">
+  <div class="form-new">
 
-<%= render "form", lair: @lair, booking: @booking %>
+    <h1>New booking</h1>
 
-<br>
+    <%= render "form", lair: @lair, booking: @booking %>
 
-<div>
-  <%= link_to "Back to bookings", bookings_path %>
+  </div>
+  <%= image_tag "border.png", class: "page-border" %>
 </div>
+<%# <div class="mt-5">
+  <%= link_to "Back to bookings", bookings_path %>
+<%# </div> %>

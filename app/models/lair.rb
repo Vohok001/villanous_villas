@@ -11,4 +11,10 @@ class Lair < ApplicationRecord
   validates :max_guests, numericality: { only_integer: true, greater_than: 0 }
   validates :price_per_night, numericality: { greater_than: 0 }
 
+  include PgSearch::Model
+  pg_search_scope :search_lairs,
+    against: [ :name, :description, :location, :description, :tagline ],
+    using: {
+      tsearch: { prefix: true },
+    }
 end

@@ -4,7 +4,16 @@ class LairsController < ApplicationController
   before_action :authorize_user, only: %i[ edit update destroy ]
 
   def index
-    @lairs = Lair.all
+    @lairs = if params[:query].present?
+               Lair.search_lairs(params[:query])
+             else
+               Lair.all
+             end
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   # GET /lairs/1 or /lairs/1.json
@@ -34,8 +43,15 @@ class LairsController < ApplicationController
 
   # PATCH/PUT /lairs/1 or /lairs/1.json
   def update
-    @lair.update!(lair_params)
-    redirect_to lair_path(@lair)
+    respond_to do |format|
+      if @lair.update(lair_params)
+        format.html { redirect_to lair_path(@lair) }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      else
+        format.html { render "update-show", status: :unprocessable_entity }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      end
+    end
   end
 
   # DELETE /lairs/1 or /lairs/1.json
