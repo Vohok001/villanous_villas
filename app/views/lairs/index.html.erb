@@ -5,15 +5,15 @@
 
 <div class="lairs-container">
   <% @lairs.each do |lair| %>
-    <div class="lair-card">
-      <div class="image-container">
-        <%=  image_tag default_lair_image(lair.name), class: "lair-image" %>
-      </div>
     <%= link_to lair_path(lair) do %>
-      <h2><%= lair.name %></h2>
+      <div class="lair-card">
+        <div class="image-container">
+          <%=  image_tag default_lair_image(lair.name), class: "lair-image" %>
+        </div>
+        <h2><%= lair.name %></h2>
+        <p><%= lair.tagline %></p>
+      </div>
     <% end %>
-      <p><%= lair.tagline %></p>
-    </div>
   <% end %>
   </div>
 </div>
