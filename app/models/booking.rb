@@ -11,13 +11,11 @@ class Booking < ApplicationRecord
     return if check_out.blank? || check_in.blank?
 
     begin
-      check_in = Date.parse(check_in.to_s)
-      check_out = Date.parse(check_out.to_s)
-
       if check_out <= check_in
         errors.add(:check_out, "must be after the check-in date")
       end
+    rescue ArgumentError
+      errors.add(:base, "Invalid date format for check-in or check-out")
     end
   end
 end
-

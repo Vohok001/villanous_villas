@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :authorize_user, only: %i[ edit update destroy ]
 
   # GET /bookings or /bookings.json
   def index
@@ -24,7 +25,7 @@ class BookingsController < ApplicationController
     @lair = Lair.find(params[:lair_id])
     @booking.lair = @lair
     if @booking.save!
-      redirect_to lair_path(@lair)
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
@@ -55,5 +56,12 @@ class BookingsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def booking_params
       params.require(:booking).permit(:check_in, :check_out)
+    end
+
+    def authorize_user
+      unless current_user == @booking.user
+        flash[:alert] = "You are not authorized to perform this action."
+        redirect_to lairs_path
+      end
     end
 end
