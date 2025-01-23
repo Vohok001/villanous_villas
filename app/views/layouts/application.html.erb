@@ -24,7 +24,9 @@
     <% if alert.present? %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
     <% unless controller_name == 'pages' && action_name == 'home' %>
       <%= render 'layouts/footer' %>
     <% end %>
