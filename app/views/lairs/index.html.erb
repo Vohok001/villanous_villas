@@ -1,13 +1,13 @@
-<%= render 'lairs/banner' %>
-
-<div class="search-bar">
-  <%= form_with url: lairs_path, method: :get, class: "d-flex", data: { controller: "search", action: "input->search#search", search_url: lairs_path } do %>
-    <%= text_field_tag :query, params[:query], placeholder: "Search for a lair", data: { search_target: "query" } %>
-    <%= text_field_tag :check_in, params[:check_in], placeholder: "Check-in", data: { search_target: "checkIn" } %>
-    <%= text_field_tag :check_out, params[:check_out], placeholder: "Check-out", data: { search_target: "checkOut" } %>
-  <% end %>
+<div class="banner-search">
+  <%= render 'lairs/banner' %>
+  <div class="search-bar">
+    <%= form_with url: lairs_path, method: :get, class: "d-flex", data: { controller: "search", action: "input->search#search", search_url: lairs_path } do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search for a lair", data: { search_target: "query" } %>
+      <%= text_field_tag :check_in, params[:check_in], placeholder: "Check-in", data: { search_target: "checkIn" } %>
+      <%= text_field_tag :check_out, params[:check_out], placeholder: "Check-out", data: { search_target: "checkOut" } %>
+    <% end %>
+  </div>
 </div>
-
 <div class="index-container">
   <p style="color: green"><%= notice %></p>
 
