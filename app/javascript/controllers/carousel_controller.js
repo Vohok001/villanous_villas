@@ -4,28 +4,23 @@ export default class extends Controller {
   static targets = ["viewport", "slide"];
 
   connect() {
-    this.currentIndex = 0; // Start at the first slide
-    this.update();
+    this.currentIndex = 0;
+    this.totalSlides = this.slideTargets.length; // Dynamically count slides
   }
 
-  prev(event) {
-    event.preventDefault(); // Prevent the default anchor behavior
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.totalSlides; // Wrap around to first slide
+    this.updateCarousel();
+  }
+
+  prev() {
     this.currentIndex =
-      (this.currentIndex - 1 + this.slideTargets.length) %
-      this.slideTargets.length;
-    this.update();
+      (this.currentIndex - 1 + this.totalSlides) % this.totalSlides; // Wrap around to last slide
+    this.updateCarousel();
   }
 
-  next(event) {
-    event.preventDefault(); // Prevent the default anchor behavior
-    this.currentIndex =
-      (this.currentIndex + 1) % this.slideTargets.length;
-    this.update();
-  }
-
-  update() {
-    const offset = -this.currentIndex * 100;
+  updateCarousel() {
+    const offset = -this.currentIndex * 100; // Calculate slide offset
     this.viewportTarget.style.transform = `translateX(${offset}%)`;
-    this.viewportTarget.style.transition = "transform 0.5s ease-in-out";
   }
 }

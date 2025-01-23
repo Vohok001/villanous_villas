@@ -3,7 +3,7 @@
   <div class="show-card">
     <h1> <%= @lair.name %></h1>
 
-    <div class="show-img-carousel" data-controller="carousel">
+    <%# <div class="show-img-carousel" data-controller="carousel">
       <section class="show-carousel" aria-label="Hero Carousel">
         <div class="show_viewport" data-carousel-target="viewport">
           <div class="show_slide" id="slide1" data-carousel-target="slide">
@@ -22,8 +22,32 @@
         <a href="#" class="show__prev" data-action="carousel#prev" aria-label="Previous Slide">❮</a>
         <a href="#" class="show__next" data-action="carousel#next" aria-label="Next Slide">❯</a>
       </section>
+    </div> %>
+
+
+    <div class="show-img-carousel" data-controller="carousel">
+      <section class="show-carousel" aria-label="Hero Carousel">
+        <div class="show_viewport" data-carousel-target="viewport">
+          <%if @lair.photos.length > 1  %>
+            <% @lair.photos.each_with_index do |photo, index| %>
+              <div class="carousel__slide" data-carousel-target="slide" id="slide<%= index + 1 %>">
+                <%= cl_image_path category.photo.key %>
+              </div>
+            <% end %>
+          <% elsif @lair.photos.length == 1 %>
+            <%= cl_tag %>
+          <% else %>
+            <%= image_path("lair-placeholder.jpg") %>
+          <% end %>
+        </div>
+
+        <a href="#" class="show__prev" data-action="carousel#prev" aria-label="Previous Slide"></a>
+        <a href="#" class="show__next" data-action="carousel#next" aria-label="Next Slide"></a>
+      </section>
     </div>
-    <%# <%= image_tag "#{default_lair_image(@lair.name)}"%> 
+
+
+    <%# <%= image_tag "#{default_lair_image(@lair.name)}"%>
     <h3><%= @lair.tagline %></h3>
     <p> <strong>Lair info:</strong> <%= @lair.description %></p>
     <p> <strong>Max occupancy:</strong> <%= @lair.max_guests %></p>
