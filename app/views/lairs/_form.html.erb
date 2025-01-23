@@ -17,6 +17,18 @@
         <%= f.text_field :max_guests %>
         <%= f.number_field :price_per_night %>
         <%= f.input :photo, as: :file, label: false %>
+        <div data-controller="add-photo">
+          <div data-add-photo-target="photoList">
+            <%= f.input :photo, as: :file, label: false %>
+          </div>
+          <template data-add-photo-target="photoTemplate">
+            <div>
+              <%= f.input :photo, as: :file, label: false %>
+            </div>
+          </template>
+          <button type="button" class="btn btn-secondary" data-action="add-photo#addPhoto">Add another photo</button>
+        </div>
+      </div>
       </div>
 
     </div>
