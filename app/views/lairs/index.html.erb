@@ -1,5 +1,12 @@
 <%= render 'lairs/banner' %>
 
+<div>
+  <%= form_with url: lairs_path, method: :get, class: "d-flex", data: { controller: "search", action: "input->search#search", search_url: lairs_path } do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search for a lair", data: { search_target: "query" } %>
+
+  <% end %>
+</div>
+
 <div class="index-container">
 <p style="color: green"><%= notice %></p>
 
@@ -14,8 +21,8 @@
         <p><%= lair.tagline %></p>
       </div>
     <% end %>
-  <% end %>
-  </div>
+
+
 </div>
 
 

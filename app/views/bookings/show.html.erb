@@ -1,10 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @booking %>
+<% nights = @booking.check_out - @booking.check_in%>
+
+<h2> Your Booking : <h2>
+<div class="show-card">
+    <%= image_tag "#{default_lair_image(@booking.lair.name)}" %>
+    <h1> <%= @booking.lair.name %></h1>
+    <h3><%= @booking.lair.tagline %></h3>
+    <p> <strong>Max occupancy:</strong> <%= @booking.lair.max_guests %></p>
+    <p> <strong>Location:</strong> <%= @booking.lair.location %></p>
+    <p> <strong> Check-in:</strong> <%= @booking.check_in%> </p>
+    <p> <strong> Check-out: </strong> <%= @booking.check_out %> </p>
+    <p> <strong> Length of visit: </strong> <%= nights %> </p>
+    <p> <strong>Total Cost: </strong> £ <%=   nights * @booking.lair.price_per_night %> </p>
+  </div>
+
 
 <div>
   <%= link_to "Edit this booking", edit_booking_path(@booking) %> |
   <%= link_to "Back to bookings", bookings_path %>
+
 
   <%= button_to "Destroy this booking", @booking, method: :delete %>
 </div>

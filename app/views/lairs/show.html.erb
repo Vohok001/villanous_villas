@@ -13,6 +13,7 @@
     <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>
   </div>
 
+<%= link_to "Book this lair", new_lair_booking_path(@lair) %> |
 <% if current_user == @lair.user %>
   <div class="show-btns">
     <%= link_to "Edit this lair", edit_lair_path(@lair) %> |

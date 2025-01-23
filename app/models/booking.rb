@@ -11,10 +11,7 @@ class Booking < ApplicationRecord
     return if check_out.blank? || check_in.blank?
 
     begin
-      parsed_check_in = Date.parse(check_in)
-      parsed_check_out = Date.parse(check_out)
-
-      if parsed_check_out <= parsed_check_in
+      if check_out <= check_in
         errors.add(:check_out, "must be after the check-in date")
       end
     rescue ArgumentError
