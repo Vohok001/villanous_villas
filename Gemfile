@@ -76,5 +76,4 @@ end
 
 gem "devise"
 gem "hirb"
-gem "dotenv-rails"
 gem "cloudinary"

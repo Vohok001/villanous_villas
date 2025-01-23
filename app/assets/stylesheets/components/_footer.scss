@@ -1,0 +1,74 @@
+/* Footer container */
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;           /* Flexbox for horizontal alignment */
+  background-color: #0f0e37;  /* Dark background color */
+  color: rgba(236, 240, 241, 0.8);             /* Light text color */
+  padding: 20px 0;            /* Space around content */         /* Center-align all text */
+  // position: relative;
+  width: 100%;
+  height: 56px;
+  padding: 0 20px;
+}
+
+.footer .copyright {
+  text-align: left;
+}
+
+/* Copyright section */
+.footer .copyright p {
+  margin: 0;
+  font-size: 14px;
+  color: #bcbebe;
+}
+
+.footer .made-by {
+  flex: 1;
+  text-align: center;
+}
+
+/* 'Made By' section */
+.footer .made-by p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: rgba(236, 240, 241, 0.8); /* Light color */
+}
+
+.footer .socials {
+  text-align: right;
+}
+
+/* Socials section */
+.footer .socials ul {
+  list-style-type: none;      /* Remove bullet points */
+  padding: 0;                 /* Remove default padding */
+  margin: 0;                  /* Remove default margin */
+  display: flex;              /* Flexbox for horizontal alignment */
+  justify-content: flex-end;    /* Center-align the list items */
+  gap: 20px;                  /* Space between the icons */
+}
+
+/* Social links styling */
+.footer .socials li a {
+  text-decoration: none;      /* Remove underlines */
+  color: rgba(236, 240, 241, 0.8);             /* Light color for the links */
+  font-size: 18px;            /* Make the icons a bit larger */
+  transition: color 0.3s;     /* Smooth transition for hover */
+}
+
+.footer .socials li a:hover {
+  color: #affc41;;             /* Bright color on hover */
+}
+
+/* Responsive design for small screens */
+// @media (max-width: 768px) {
+//   .footer {
+//     padding: 15px 0;          /* Less padding on small screens */
+//   }
+
+//   .footer .socials ul {
+//     flex-direction: column;   /* Stack the social icons vertically */
+//     gap: 10px;                /* Smaller gap between icons */
+//   }
+// }
