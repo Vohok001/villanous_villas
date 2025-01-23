@@ -1,7 +1,31 @@
 <div data-update-form-target="container">
   <div class="show-card">
     <h1> <%= @lair.name %></h1>
-    <%= image_tag "#{default_lair_image(@lair.name)}"%>
+
+
+  <div class="show-img-carousel" data-controller="carousel">
+    <section class="show-carousel" aria-label="Hero Carousel">
+      <div class="show_viewport" data-carousel-target="viewport">
+        <%if @lair.images.length > 1  %>
+          <% @lair.images.each_with_index do |image, index| %>
+            <div class="carousel__slide" data-carousel-target="slide" id="slide<%= index + 1 %>">
+              <%= cl_image_tag image.key %>
+            </div>
+          <% end %>
+        <% elsif @lair.images.length == 1 %>
+          <%= cl_image_tag @lair.images.first.key %>
+        <% else %>
+          <%= image_tag("lair-placeholder.jpg") %>
+        <% end %>
+      </div>
+
+      <a href="#" class="show__prev" data-action="carousel#prev" aria-label="Previous Slide"></a>
+      <a href="#" class="show__next" data-action="carousel#next" aria-label="Next Slide"></a>
+    </section>
+  </div>
+
+
+
     <h3><%= @lair.tagline %></h3>
     <p> <strong>Lair info:</strong> <%= @lair.description %></p>
     <p> <strong>Max occupancy:</strong> <%= @lair.max_guests %></p>
@@ -29,3 +53,24 @@
       <%end %>
   </div>
 </div>
+
+  <%# <div class="show-img-carousel" data-controller="carousel">
+      <section class="show-carousel" aria-label="Hero Carousel">
+        <div class="show_viewport" data-carousel-target="viewport">
+          <div class="show_slide" id="slide1" data-carousel-target="slide">
+            <img src="/assets/Vader-1.jpg" alt="Lair 1" class="carousel-image">
+          </div>
+          <div class="show_slide" id="slide2" data-carousel-target="slide">
+            <img src="/assets/Vader-2.jpg" alt="Lair 2" class="carousel-image">
+          </div>
+          <div class="show_slide" id="slide3" data-carousel-target="slide">
+            <img src="/assets/Vader-3.jpg" alt="Lair 3" class="carousel-image">
+          </div>
+          <div class="show_slide" id="slide4" data-carousel-target="slide">
+            <img src="/assets/Vader-4.jpg" alt="Lair 4" class="carousel-image">
+          </div>
+        </div>
+        <a href="#" class="show__prev" data-action="carousel#prev" aria-label="Previous Slide">❮</a>
+        <a href="#" class="show__next" data-action="carousel#next" aria-label="Next Slide">❯</a>
+      </section>
+    </div> %>
