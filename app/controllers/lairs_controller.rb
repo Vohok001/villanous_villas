@@ -53,7 +53,7 @@ class LairsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def lair_params
-    params.require(:lair).permit(:name, :description, :location, :max_guests, :price_per_night, :_average_rating)
+    params.require(:lair).permit(:name, :description, :location, :max_guests, :price_per_night, :_average_rating :images [])
   end
 
   def authorize_user
