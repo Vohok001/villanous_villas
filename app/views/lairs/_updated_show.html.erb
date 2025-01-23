@@ -12,17 +12,20 @@
     <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>
   </div>
 
-    <%# <%= link_to "Book this lair", new_lair_booking_path(@lair) %>
-    <%# <% if current_user == @lair.user %>
-      <div class="show-btns">
-        <%= link_to "Edit this lair", edit_lair_path(@lair) %>
-        <%= button_to "Destroy this lair", @lair, method: :delete %>
 
-        <div data-controller="toggle">
-          <button class="btn btn-outline-primary" data-action="click->toggle#fire">Edit a Lair</button>
-          <div class="d-none" data-toggle-target="toggleableElement">
-            <%= render "form", lair: @lair %>
+  <div>
+    <%= link_to "Book this lair", new_lair_booking_path(@lair) %>
+      <% if current_user == @lair.user %>
+        <%= button_to "Destroy this lair", @lair, method: :delete %>
+        <div class="show-btns">
+              <div data-controller="toggle">
+            <button class="btn btn-outline-primary" data-action="click->toggle#fire">Edit this Lair</button>
+            <div class="d-none" data-toggle-target="toggleableElement">
+              <%= render "form", lair: @lair %>
+            </div>
           </div>
         </div>
-      </div>
+        </div>
+      <%end %>
+  </div>
 </div>
