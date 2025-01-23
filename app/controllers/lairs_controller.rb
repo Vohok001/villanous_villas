@@ -10,6 +10,18 @@ class LairsController < ApplicationController
                Lair.all
              end
 
+    if params[:check_in].present? && params[:check_out].present?
+      check_in = Date.parse(params[:check_in])
+      check_out = Date.parse(params[:check_out])
+
+      @lairs = @lairs.select do |lair|
+        lair.bookings.none? do |booking|
+          booking_range = booking.check_in..booking.check_out
+          booking_range.overlaps?(check_in..check_out)
+        end
+      end
+    end
+
     respond_to do |format|
       format.html
       format.turbo_stream
