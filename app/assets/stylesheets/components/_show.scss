@@ -1,20 +1,14 @@
 @import "stars";
 
 .show-container{
-  width:  900px;
-  margin: auto;
   margin-top: 50px;
   align-items: center;
   overflow: hidden;
-  img{
-    height: 400px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
 }
 .show-card{
-  width: 100%;
-  margin-bottom: 100px;
+  margin: auto;
+  width: 50%;
+  margin-bottom: 50px;
   position: relative;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   p{
@@ -33,34 +27,38 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 800px;
+  height: 400px;
+  max-width: 600px;
   margin: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .show_viewport {
   display: flex;
   width: 100%;
+  height: 100%;
   transition: transform 0.5s ease-in-out;
+  object-fit: cover;
+  object-position: center;
   img{
     width: 100%;
+    height: 100%;
+    object-position: center;
     object-fit: cover;
   }
 }
 
 .show_slide {
   flex: 0 0 100%;
+  overflow: hidden;
 }
 
 .show__prev,
 .show__next {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  font-size: 20px;
-  line-height: 1;
   width: 40px;
   height: 40px;
   display: flex;
@@ -83,3 +81,13 @@
 .show__next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+.btns-container {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding: 0px 10px;
+  }
