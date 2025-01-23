@@ -43,8 +43,15 @@ class LairsController < ApplicationController
 
   # PATCH/PUT /lairs/1 or /lairs/1.json
   def update
-    @lair.update!(lair_params)
-    redirect_to lair_path(@lair)
+    respond_to do |format|
+      if @lair.update(lair_params)
+        format.html { redirect_to lair_path(@lair) }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      else
+        format.html { render "update-show", status: :unprocessable_entity }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      end
+    end
   end
 
   # DELETE /lairs/1 or /lairs/1.json

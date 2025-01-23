@@ -1,23 +1,7 @@
 <div class="show-container">
   <p style="color: green"><%= notice %></p>
-  <div class="show-card">
-    <h1> <%= @lair.name %></h1>
-    <%= image_tag "#{default_lair_image(@lair.name)}"%>
-    <h3><%= @lair.tagline %></h3>
-    <p> <strong>Lair info:</strong> <%= @lair.description %></p>
-    <p> <strong>Max occupancy:</strong> <%= @lair.max_guests %></p>
-    <p> <strong>Location:</strong> <%= @lair.location %></p>
-    <% if @lair.rating %>
-    <p> <strong>Rating:</strong> <%= '⭐️' * @lair.rating %></p>
-    <% end %>
-    <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>
-  </div>
+</div>
 
-<%= link_to "Book this lair", new_lair_booking_path(@lair) %> |
-<% if current_user == @lair.user %>
-  <div class="show-btns">
-    <%= link_to "Edit this lair", edit_lair_path(@lair) %> |
-    <%= link_to "Destroy this lair", @lair, data: { turbo_method: :delete } %>
-  </div>
-<% end %>
+<div data-controller="update-form" >
+  <%= render 'updated_show', lair: @lair %>
 </div>

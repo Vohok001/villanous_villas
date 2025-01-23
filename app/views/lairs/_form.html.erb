@@ -1,5 +1,5 @@
-<div class="form-lair">
-  <%= simple_form_for(@lair) do |f| %>
+<div class="form-lair" data-toggle-target='form' >
+  <%= simple_form_for @lair, data: {update_form_target: 'form', action: 'submit->update-form#update' } do |f| %>
 
     <div class="d-flex justify-content-center">
       <div class="row g-4 col-6 d-flex flex-column">
