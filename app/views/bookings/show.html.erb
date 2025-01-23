@@ -1,4 +1,5 @@
 <p style="color: green"><%= notice %></p>
+    <% date_today = Date.today %>
 
 <% nights = @booking.check_out - @booking.check_in%>
 
@@ -14,8 +15,20 @@
     <p> <strong> Length of visit: </strong> <%= nights %> </p>
     <p> <strong>Total Cost: </strong> £ <%=   nights * @booking.lair.price_per_night %> </p>
   </div>
-
-
+<% if date_today >= @booking.check_out %>
+    <p><strong>Rate Your Visit:</strong>
+  <%= form_with(model: [@lair,@booking], local: true) do |f| %>
+    <div class="star-rating">
+      <% 5.downto(1) do |i| %>
+        <%= f.radio_button :rating, i, id: "star#{i}" %>
+        <label for="star<%= i %>" title="<%= i %> stars">
+          &#9733;
+        </label>
+      <% end %>
+    </div>
+    <%= f.submit "Submit Rating" %>
+  <% end %>
+<% end %>
 <div>
   <%= link_to "Edit this booking", edit_booking_path(@booking) %> |
   <%= link_to "Back to bookings", bookings_path %>
