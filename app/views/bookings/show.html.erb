@@ -13,7 +13,7 @@
     <p> <strong> Check-in:</strong> <%= @booking.check_in%> </p>
     <p> <strong> Check-out: </strong> <%= @booking.check_out %> </p>
     <p> <strong> Length of visit: </strong> <%= nights %> </p>
-    <p> <strong>Total Cost: </strong> £ <%=   nights * @booking.lair.price_per_night %> </p>
+    <p> <strong>Total Cost: </strong> £<%= format('%.2f', nights * @booking.lair.price_per_night) %> </p>
   </div>
 <% if date_today >= @booking.check_out %>
     <p><strong>Rate Your Visit:</strong>
