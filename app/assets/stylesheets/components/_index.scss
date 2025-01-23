@@ -8,6 +8,8 @@
 @import "banner";
 @import "form";
 @import "show_image";
+@import "border";
+
 
 .index-container {
   text-align: center;
@@ -42,6 +44,11 @@
 
 .lair-card h2 {
   font-family: 'Amarante';
+}
+
+.lair-card:hover {
+  box-shadow: 0 0 20px rgba(174, 252, 65, 0.7), 0 0 40px rgba(174, 252, 65, 0.7), 0 0 60px rgba(255, 105, 208, 0.7), 0 0 100px rgba(255, 105, 208, 0.7);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .image-container {
@@ -83,4 +90,10 @@
   to {
     box-shadow: 0 0 30px rgba(228, 96, 255, 1), 0 0 60px rgba(228, 96, 255, 0.8);
   }
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
