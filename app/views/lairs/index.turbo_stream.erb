@@ -1,0 +1,15 @@
+<%= turbo_stream.replace "lair-results" do %>
+  <div id="lair-results" class="lairs-container">
+    <% @lairs.each do |lair| %>
+      <div class="lair-card">
+        <div class="image-container">
+          <%= image_tag default_lair_image(lair.name), class: "lair-image" %>
+        </div>
+        <%= link_to lair_path(lair) do %>
+          <h2><%= lair.name %></h2>
+        <% end %>
+        <p><%= lair.tagline %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

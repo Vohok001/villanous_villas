@@ -4,7 +4,16 @@ class LairsController < ApplicationController
   before_action :authorize_user, only: %i[ edit update destroy ]
 
   def index
-    @lairs = Lair.all
+    @lairs = if params[:query].present?
+               Lair.search_lairs(params[:query])
+             else
+               Lair.all
+             end
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   # GET /lairs/1 or /lairs/1.json
