@@ -39,6 +39,10 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1 or /bookings/1.json
   def update
     @booking.update(booking_params)
+    @lair = Lair.find(@booking.lair_id)
+    lairs = Booking.where(lair_id: @lair.id)
+    @lair.average_rating = (lairs.sum(:rating)/lairs.count(:rating)).round
+    @lair.save!
     redirect_to lair_path(@booking.lair)
   end
 
@@ -55,7 +59,7 @@ class BookingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.require(:booking).permit(:check_in, :check_out)
+      params.require(:booking).permit(:check_in, :check_out, :rating)
     end
 
     def authorize_user

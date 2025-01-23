@@ -10,6 +10,18 @@ class LairsController < ApplicationController
                Lair.all
              end
 
+    if params[:check_in].present? && params[:check_out].present?
+      check_in = Date.parse(params[:check_in])
+      check_out = Date.parse(params[:check_out])
+
+      @lairs = @lairs.select do |lair|
+        lair.bookings.none? do |booking|
+          booking_range = booking.check_in..booking.check_out
+          booking_range.overlaps?(check_in..check_out)
+        end
+      end
+    end
+
     respond_to do |format|
       format.html
       format.turbo_stream
@@ -43,8 +55,15 @@ class LairsController < ApplicationController
 
   # PATCH/PUT /lairs/1 or /lairs/1.json
   def update
-    @lair.update!(lair_params)
-    redirect_to lair_path(@lair)
+    respond_to do |format|
+      if @lair.update(lair_params)
+        format.html { redirect_to lair_path(@lair) }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      else
+        format.html { render "update-show", status: :unprocessable_entity }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      end
+    end
   end
 
   # DELETE /lairs/1 or /lairs/1.json
@@ -62,7 +81,7 @@ class LairsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def lair_params
-    params.require(:lair).permit(:name, :description, :location, :max_guests, :price_per_night, :rating )
+    params.require(:lair).permit(:name, :description, :location, :max_guests, :price_per_night, :_average_rating, :images [])
   end
 
   def authorize_user
