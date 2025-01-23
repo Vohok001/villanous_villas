@@ -5,6 +5,7 @@
 @import "navbar";
 @import "homepage";
 @import "show";
+@import "banner";
 
 .index-container {
   text-align: center;
@@ -49,18 +50,6 @@
 .lair-image {
   width: 100%;
   height: 200px;
-  object-fit: cover;
-}
-
-.hero-banner {
-  position: relative;
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.carousel-image {
-  width: 100%;
-  height: 400px;
   object-fit: cover;
 }
 
