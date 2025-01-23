@@ -9,7 +9,7 @@
     <% if @lair.average_rating%>
       <p> <strong>Rating:</strong> <%= @lair.average_rating %></p>
     <% end %>
-    <p> <strong>Price: </strong> £ <%= @lair.price_per_night %></p>
+    <p> <strong>Price: </strong> £<%= format("%.2f", @lair.price_per_night) %></p>
   </div>
 
 
