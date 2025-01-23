@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     @lair = Lair.find(params[:lair_id])
     @booking.lair = @lair
     if @booking.save!
-      redirect_to lair_path(@lair)
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
