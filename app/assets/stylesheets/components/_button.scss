@@ -1,0 +1,19 @@
+.book-button {
+  color: #affc41;
+  text-decoration: none;
+  background: linear-gradient(90deg, #ff24e9, #bc01af);
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(228, 96, 255, 0.8), 0 0 40px rgba(228, 96, 255, 0.6);
+  animation: glow 1.5s infinite alternate;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(228, 96, 255, 0.5), 0 0 20px rgba(228, 96, 255, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(228, 96, 255, 1), 0 0 60px rgba(228, 96, 255, 0.8);
+  }
+}
