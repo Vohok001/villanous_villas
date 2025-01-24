@@ -1,5 +1,5 @@
 <div data-update-form-target="container">
-    <%= link_to "Book this lair", new_lair_booking_path(@lair), class: "book-button" %>
+    <%= link_to "Book this lair", new_lair_booking_path(@lair, check_in: params[:check_in], check_out: params[:check_out]), class: "book-button" %>
   <div class="show-card">
 
     <h1> <%= @lair.name %></h1>
@@ -43,17 +43,17 @@
 
   <div class="btns-container">
     <% if current_user == @lair.user %>
-      <%= button_to "Destroy this lair", @lair, method: :delete %>
 
-        <div data-controller="toggle">
-          <button data-action="click->toggle#fire">Edit this Lair</button>
-          <div class="show-form-edit d-none" data-toggle-target="toggleableElement">
-            <h1>Edit Lair</h1>
-            <%= render "form", lair: @lair %>
-          </div>
+      <div data-controller="toggle">
+        <button data-action="click->toggle#fire">Edit this Lair</button>
+        <div class="show-form-edit d-none" data-toggle-target="toggleableElement">
+          <h1>Edit Lair</h1>
+          <%= render "form", lair: @lair %>
         </div>
+      </div>
+     <%= button_to "Destroy this lair", @lair, method: :delete %>
 
-    <%end %>
+    <%end %>git brabc
   </div>
 
 </div>

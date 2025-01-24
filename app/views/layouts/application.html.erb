@@ -24,7 +24,7 @@
     <% if alert.present? %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <div class="content">
+    <div class="content" data-controller="toggle" data-toggle-target="form">
       <%= yield %>
     </div>
     <% unless controller_name == 'pages' && action_name == 'home' %>

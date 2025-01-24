@@ -15,7 +15,10 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @lair = Lair.find(params[:lair_id])
-    @booking = Booking.new
+    @booking = Booking.new(
+      check_in: params[:check_in],
+      check_out: params[:check_out]
+    )
   end
 
   # POST /bookings or /bookings.json
@@ -41,8 +44,10 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     @lair = Lair.find(@booking.lair_id)
     lairs = Booking.where(lair_id: @lair.id)
-    @lair.average_rating = (lairs.sum(:rating)/lairs.count(:rating)).round
-    @lair.save!
+    if @booking.rating
+      @lair.average_rating = (lairs.sum(:rating)/lairs.count(:rating)).round
+      @lair.save!
+    end
     redirect_to lair_path(@booking.lair)
   end
 

@@ -1,14 +1,21 @@
 <p style="color: green"><%= notice %></p>
-
+<div class="bookings-container">
 <h1>Bookings</h1>
 
 <div id="bookings">
-  <% @bookings.each do |booking| %>
-    <%= render booking %>
-    <p>
-      <%= link_to "Show this booking", booking %>
-    </p>
+  <% @bookings.where(user_id: current_user).each do |booking| %>
+    <%= link_to booking_path(booking) do %>
+        <div class="card-product">
+        <div class="bookings-image-container">
+          <%= image_tag "#{default_lair_image(booking.lair.name)}" %>
+        </div>
+          <div class="card-product-infos">
+            <h2><%= booking.lair.name %></h2>
+            <p><%= booking.lair.tagline %></p>
+            <strong> Check-in:</strong> <%= booking.check_in%>
+            <strong> Check-out: </strong> <%= booking.check_out %>
+          </div>
+        </div>
+      <% end %>
   <% end %>
 </div>
-
-<%= link_to "New booking", new_booking_path %>
