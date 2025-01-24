@@ -1,5 +1,5 @@
 <div data-update-form-target="container">
-    <%= link_to "Book this lair", new_lair_booking_path(@lair), class: "book-button" %>
+    <%= link_to "Book this lair", new_lair_booking_path(@lair, check_in: params[:check_in], check_out: params[:check_out]), class: "book-button" %>
   <div class="show-card">
 
     <h1> <%= @lair.name %></h1>

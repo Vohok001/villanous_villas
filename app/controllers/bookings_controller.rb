@@ -15,7 +15,10 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @lair = Lair.find(params[:lair_id])
-    @booking = Booking.new
+    @booking = Booking.new(
+      check_in: params[:check_in],
+      check_out: params[:check_out]
+    )
   end
 
   # POST /bookings or /bookings.json
