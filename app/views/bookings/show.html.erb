@@ -6,16 +6,17 @@
 <div class="your-booking-container">
   <h2> Your Booking : <h2>
   <div class="your-booking-card">
-      <%= image_tag "#{default_lair_image(@booking.lair.name)}" %>
-      <h1> <%= @booking.lair.name %></h1>
-      <h3><%= @booking.lair.tagline %></h3>
-      <p> Max occupancy: <%= @booking.lair.max_guests %></p>
-      <p> <strong>Location:</strong> <%= @booking.lair.location %></p>
-      <p> <strong> Check-in:</strong> <%= @booking.check_in%> </p>
-      <p> <strong> Check-out: </strong> <%= @booking.check_out %> </p>
-      <p> <strong> Length of visit: </strong> <%= nights %> </p>
-      <p> <strong>Total Cost: </strong> £<%= format('%.2f', nights * @booking.lair.price_per_night) %> </p>
-    </div>
+    <%= image_tag "#{default_lair_image(@booking.lair.name)}" %>
+    <h1> <%= @booking.lair.name %></h1>
+    <h3><%= @booking.lair.tagline %></h3>
+    <p> Max occupancy: <%= @booking.lair.max_guests %></p>
+    <p> <span>Location:</span> <%= @booking.lair.location %></p>
+    <p> <span> Check-in:</span> <%= @booking.check_in%> </p>
+    <p> <span> Check-out: </span> <%= @booking.check_out %> </p>
+    <p> <span> Length of visit: </span> <%= nights %> </p>
+    <p> <span>Total Cost: </span> £<%= format('%.2f', nights * @booking.lair.price_per_night) %> </p>
+  </div>
+
   <% if date_today >= @booking.check_out %>
       <p><strong>Rate Your Visit:</strong>
     <%= form_with(model: [@lair,@booking], local: true) do |f| %>
@@ -30,9 +31,11 @@
       <%= f.submit "Submit Rating" %>
     <% end %>
   <% end %>
+
   <div class="booking-btns-container">
-    <%= link_to "Edit this booking", edit_booking_path(@booking) %> |
-    <%= link_to "Back to bookings", bookings_path %>
-    <%= button_to "Destroy this booking", @booking, method: :delete %>
+    <%= link_to "Edit this booking", edit_booking_path(@booking), class: "book-button smaller-text" %> |
+    <%= link_to "Back to bookings", bookings_path, class: "book-button smaller-text" %>
   </div>
+    <%= button_to "Destroy this booking", @booking, method: :delete, class: " booking-delete-button smaller-text" %>
+
 </div>

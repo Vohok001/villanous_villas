@@ -7,6 +7,7 @@
   overflow: hidden;
   img{
     width: 400px;
+    padding: 15px 0px;
   }
   a{
     size: 20px;
@@ -23,10 +24,22 @@
   }
   h3 {
     color: greenyellow;
+    padding: 20px 0px;
+    font-weight: lighter;
   }
-  strong {
+  span {
     color: greenyellow;
   }
 }
-.booking-btns-container button{
+.smaller-text{
+  font-size: 1rem;
+}
+.booking-btn-container{
+  margin-top: 20px;
+}
+.booking-delete-button{
+  background-color: red;
+  color: white;
+  padding: 10px;
+  margin: 25px;
 }
