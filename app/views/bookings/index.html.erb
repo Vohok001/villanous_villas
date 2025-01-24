@@ -14,7 +14,11 @@
     <%= link_to booking_path(booking) do %>
         <div class="card-product">
         <div class="bookings-image-container">
-          <%= image_tag "#{default_lair_image(booking.lair.name)}" %>
+          <%if booking.lair.images.length > 0  %>
+            <%= cl_image_tag images[0].key%>
+          <%else %>
+            <%= image_tag "#{default_lair_image(booking.lair.name)}" %>
+          <%end%>
         </div>
           <div class="card-product-infos">
             <h2><%= booking.lair.name %></h2>
