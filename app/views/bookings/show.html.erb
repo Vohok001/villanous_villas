@@ -6,7 +6,11 @@
 <div class="your-booking-container">
   <h2> Your Booking : <h2>
   <div class="your-booking-card">
-    <%= image_tag "#{default_lair_image(@booking.lair.name)}" %>
+    <%if @booking.lair.images.length > 0  %>
+      <%= cl_image_tag images[0].key%>
+    <%else %>
+      <%= image_tag "#{default_lair_image(@booking.lair.name)}" %>
+    <%end%>
     <h1> <%= @booking.lair.name %></h1>
     <h3><%= @booking.lair.tagline %></h3>
     <p> Max occupancy: <%= @booking.lair.max_guests %></p>
