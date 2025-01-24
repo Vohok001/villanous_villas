@@ -4,7 +4,11 @@
       <%= link_to lair_path(lair, check_in: params[:check_in], check_out: params[:check_out]) do %>
         <div class="lair-card">
           <div class="image-container">
-            <%= image_tag default_lair_image(lair.name), class: "lair-image" %>
+     <%if lair.images.exists?  %>
+              <%= cl_image_tag lair.images.first.key, class: "lair-image" %>
+            <%else %>
+              <%= image_tag "#{default_lair_image(lair.name)}", class: "lair-image" %>
+            <%end%>
           </div>
             <h2><%= lair.name %></h2>
           <p><%= lair.tagline %></p>
