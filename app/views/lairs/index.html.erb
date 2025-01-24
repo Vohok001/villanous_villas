@@ -25,6 +25,10 @@
           </div>
           <h2><%= lair.name %></h2>
           <p><%= lair.tagline %></p>
+          <div class="more-info">
+            <p><i class="fa-solid fa-users-line"></i> <%= lair.max_guests %></p>
+            <p><%= lair.price_per_night %></p>
+          </div>
         </div>
       <% end %>
     <% end %>
