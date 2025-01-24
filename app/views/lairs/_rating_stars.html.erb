@@ -1,0 +1,17 @@
+<% full_stars = rating.to_i %>
+<% half_star = (rating - full_stars) >= 0.5 %>
+<% empty_stars = 5 - full_stars - (half_star ? 1 : 0) %>
+
+<div class="stars">
+  <% full_stars.times do %>
+    <i class="fa-solid fa-skull"></i>
+  <% end %>
+
+  <% if half_star %>
+    <i class="fa-regular fa-skull"></i>
+  <% end %>
+
+  <% empty_stars.times do %>
+    <i class="fa-regular fa-skull"></i>
+  <% end %>
+</div>
