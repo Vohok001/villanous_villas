@@ -35,7 +35,7 @@ Lair.create!([
     max_guests: 20, location: "Pacific Ring of Fire", user_id: users[0].id, average_rating: rand(3..5) },
   { name: "Fortress Vader", tagline: "A dark, ominous castle on Mustafar.", description: "Perched on the lava-filled planet Mustafar, this fortress features 8 bedrooms, a meditation chamber, and a fully equipped conference room for intergalactic meetings. Enjoy a private lava river and cutting-edge technology.", price_per_night: 10000,
     max_guests: 15, location: "Mustafar", user_id: users[1].id, average_rating: rand(3..5) },
-  { name: "Abandoned Amusement Park", tagline: "A spooky park with deadly surprises.", description: "A chilling amusement park in Gotham City with eerie rides and haunted attractions. Includes 5 themed bedrooms and a central hall for gatherings, making it ideal for hosting sinister soirées.", price_per_night: 3500,
+  { name: "Fun Land", tagline: "A spooky park with deadly surprises.", description: "A chilling amusement park in Gotham City with eerie rides and haunted attractions. Includes 5 themed bedrooms and a central hall for gatherings, making it ideal for hosting sinister soirées.", price_per_night: 3500,
     max_guests: 10, location: "Gotham City", user_id: users[2].id, average_rating: rand(3..5) },
   { name: "Asteroid M", tagline: "A space station for mutants.", description: "A sprawling space station orbiting Earth, featuring 15 private suites, a zero-gravity gym, and panoramic views of the cosmos. Designed for high-tech comfort and ultimate privacy.", price_per_night: 12000,
     max_guests: 25, location: "Earth Orbit", user_id: users[3].id, average_rating: rand(3..5) },
