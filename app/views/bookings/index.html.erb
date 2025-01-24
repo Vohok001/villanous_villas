@@ -3,12 +3,43 @@
 <h1>Bookings</h1>
 
 <div id="bookings">
-  <% @bookings.each do |booking| %>
-    <%= render booking %>
-    <p>
-      <%= link_to "Show this booking", booking %>
-    </p>
+  <% if @bookings %>
+    <% @bookings.each do |booking| %>
+      <% date_today = Date.today %>
+      <% nights = booking.check_out - booking.check_in%>
+      <div class="show-card">
+        <%= image_tag "#{default_lair_image(booking.lair.name)}" %>
+        <h1> <%= booking.lair.name %></h1>
+        <h3><%= booking.lair.tagline %></h3>
+        <p> <strong>Max occupancy:</strong> <%= booking.lair.max_guests %></p>
+        <p> <strong>Location:</strong> <%= booking.lair.location %></p>
+        <p> <strong> Check-in:</strong> <%= booking.check_in%> </p>
+        <p> <strong> Check-out: </strong> <%= booking.check_out %> </p>
+        <p> <strong> Length of visit: </strong> <%= nights %> </p>
+        <p> <strong>Total Cost: </strong> £ <%=   nights * booking.lair.price_per_night %> </p>
+      </div>
+      <% if date_today >= booking.check_out %>
+        <p><strong>Rate Your Visit:</strong>
+        <%= form_with(model: [@lair,booking], local: true) do |f| %>
+          <div class="star-rating">
+            <% 5.downto(1) do |i| %>
+              <%= f.radio_button :rating, i, id: "star#{i}" %>
+              <label for="star<%= i %>" title="<%= i %> stars"> &#9733;</label>
+            <% end %>
+          </div>
+          <%= f.submit "Submit Rating" %>
+        <% end %>
+      <% end %>
+      <div>
+        <%= link_to "Edit thisbooking", edit_booking_path(booking) %> |
+        <%= link_to "Back to bookings", bookings_path %>
+        <%= button_to "Destroy this booking", booking, method: :delete %>
+      </div>
+      <p>
+      <%= link_to "Show this booking", @booking %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New booking", new_booking_path %>
+<%# <%= link_to "New booking", new_booking_path %> %>
