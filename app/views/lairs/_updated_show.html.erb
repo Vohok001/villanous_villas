@@ -1,5 +1,7 @@
 <div data-update-form-target="container">
+    <%= link_to "Book this lair", new_lair_booking_path(@lair), class: "book-button" %>
   <div class="show-card">
+
     <h1> <%= @lair.name %></h1>
 
     <div class="show-img-carousel" data-controller="carousel">
@@ -36,7 +38,6 @@
   </div>
 
 
-    <%= link_to "Book this lair", new_lair_booking_path(@lair)%>
   <div class="btns-container">
     <% if current_user == @lair.user %>
       <%= button_to "Destroy this lair", @lair, method: :delete %>
