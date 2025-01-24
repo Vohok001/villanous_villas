@@ -1,0 +1,32 @@
+.your-booking-container{
+  margin: auto;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  img{
+    width: 400px;
+  }
+  a{
+    size: 20px;
+  }
+}
+
+.your-booking-card{
+  margin: auto;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  p{
+    font-size: 20px;
+  }
+  h3 {
+    color: greenyellow;
+  }
+  strong {
+    color: greenyellow;
+  }
+}
+.booking-btns-container button{
+}
