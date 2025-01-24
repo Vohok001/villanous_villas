@@ -6,7 +6,7 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(174, 252, 65, 0.7), 0 0 20px rgba(255, 105, 208, 0.7), 0 0 40px rgba(255, 105, 208, 0.7);
   margin-top: 70px;
-  margin-right: 310px;
+  margin-right: 350px;
   z-index: 0;
 
 
@@ -20,7 +20,8 @@
 
 .form-btn{
   all: unset;
-  width: 30%;
+  width:auto;
+  // width: 30%;
   margin-top: 5px;
   padding: 10px 10px;
   font-size: 15px;
@@ -40,5 +41,44 @@
     background-color: var(--btn-glow-color);
     box-shadow: 0 0 2em 0.2em var(--btn-glow-color);
     transition: opacity 100ms linear;
+  }
+}
+
+.show-form-edit{
+  align-content: center;
+  width: 500px;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(174, 252, 65, 0.7), 0 0 20px rgba(255, 105, 208, 0.7), 0 0 40px rgba(255, 105, 208, 0.7);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  z-index: 0;
+  h1 {
+    padding-bottom: 35px;
+  }
+}
+
+.form-login {
+  position: relative;
+  width: 400px;
+  margin: auto;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(174, 252, 65, 0.7), 0 0 20px rgba(255, 105, 208, 0.7), 0 0 40px rgba(255, 105, 208, 0.7);
+  margin-top: 70px;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.custom-remember-me {
+  display: flex;
+  padding-left: 40%;
+  gap: 5px;
+  input[type="checkbox"]{
+    margin-right: 5px;
   }
 }

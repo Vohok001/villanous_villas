@@ -25,6 +25,11 @@ body {
   align-items: center;
 }
 
+.content {
+  flex: 1;
+  min-height: 68vh;
+}
+
 h1, h2, h3, h4  {
   font-family: "Amarante";
 }
@@ -43,3 +48,22 @@ a:hover {
 .lair-image {
   width: 400px;
 }
+
+
+.devise-alert-container {
+  position: fixed; /* Sticks it to the viewport */
+  bottom: 60px; /* Position it 60px from the bottom */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* True centering */
+  text-align: center;
+  z-index: 100; /* Ensure it appears above other content */
+}
+
+// .login-form {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   margin-top: 50px;
+//   width: 40%;
+// }

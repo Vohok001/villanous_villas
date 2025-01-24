@@ -1,10 +1,14 @@
-<%= simple_form_for([@lair,@booking]) do |f| %>
-<%= f.input :check_in,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-<%= f.input :check_out,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-    <%= f.button :submit %>
+<div class="form-booking">
+  <%= simple_form_for([@lair,@booking]) do |f| %>
+  <%= f.input :check_in,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :check_out,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+
+  <div>
+    <%= f.button :submit, class: "form-btn" %>
   </div>
 <% end %>
+</div>
