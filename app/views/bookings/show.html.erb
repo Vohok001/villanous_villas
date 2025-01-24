@@ -18,11 +18,11 @@
 <% if date_today >= @booking.check_out %>
     <p><strong>Rate Your Visit:</strong>
   <%= form_with(model: [@lair,@booking], local: true) do |f| %>
-    <div class="star-rating">
+    <div class="scull-rating">
       <% 5.downto(1) do |i| %>
-        <%= f.radio_button :rating, i, id: "star#{i}" %>
-        <label for="star<%= i %>" title="<%= i %> stars">
-          &#9733;
+        <%= f.radio_button :rating, i, id: "scull#{i}" %>
+        <label for="scull<%= i %>" title="<%= i %> sculls">
+          <i class="fa-solid fa-skull"></i>
         </label>
       <% end %>
     </div>
