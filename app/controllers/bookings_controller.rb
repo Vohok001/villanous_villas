@@ -41,8 +41,10 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     @lair = Lair.find(@booking.lair_id)
     lairs = Booking.where(lair_id: @lair.id)
-    @lair.average_rating = (lairs.sum(:rating)/lairs.count(:rating)).round
-    @lair.save!
+    if @booking.rating
+      @lair.average_rating = (lairs.sum(:rating)/lairs.count(:rating)).round
+      @lair.save!
+    end
     redirect_to lair_path(@booking.lair)
   end
 

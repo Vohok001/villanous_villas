@@ -40,15 +40,15 @@
 
   <div class="btns-container">
     <% if current_user == @lair.user %>
-      <%= button_to "Destroy this lair", @lair, method: :delete %>
 
-        <div data-controller="toggle">
-          <button data-action="click->toggle#fire">Edit this Lair</button>
-          <div class="show-form-edit d-none" data-toggle-target="toggleableElement">
-            <h1>Edit Lair</h1>
-            <%= render "form", lair: @lair %>
-          </div>
+      <div data-controller="toggle">
+        <button data-action="click->toggle#fire">Edit this Lair</button>
+        <div class="show-form-edit d-none" data-toggle-target="toggleableElement">
+          <h1>Edit Lair</h1>
+          <%= render "form", lair: @lair %>
         </div>
+      </div>
+     <%= button_to "Destroy this lair", @lair, method: :delete %>
 
     <%end %>
   </div>
