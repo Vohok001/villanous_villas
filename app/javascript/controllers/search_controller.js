@@ -10,7 +10,8 @@ export default class extends Controller {
       flatpickr(this.checkInTarget, {
         altInput: true,
         altFormat: "F j, Y",
-        dateFormat: "Y-m-d"
+        dateFormat: "Y-m-d",
+        minDate: "today"
       });
     }
 
@@ -18,7 +19,8 @@ export default class extends Controller {
       flatpickr(this.checkOutTarget, {
         altInput: true,
         altFormat: "F j, Y",
-        dateFormat: "Y-m-d"
+        dateFormat: "Y-m-d",
+        minDate: "today"
       });
     }
     this.search();
