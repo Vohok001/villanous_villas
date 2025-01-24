@@ -26,7 +26,8 @@ body {
 }
 
 .content {
-  min-height: 83vh;
+  flex: 1;
+  min-height: 68vh;
 }
 
 h1, h2, h3, h4  {
@@ -66,4 +67,3 @@ a:hover {
 //   margin-top: 50px;
 //   width: 40%;
 // }
-
