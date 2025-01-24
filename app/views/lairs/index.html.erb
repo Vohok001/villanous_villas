@@ -1,5 +1,5 @@
 
-<div class="banner-search" data-controller="toggle" data-toggle-target="form">
+<div class="banner-search">
   <%= render 'lairs/banner' %>
   <div class="search-bar d-none" data-toggle-target="toggleableElement">
 
@@ -11,10 +11,12 @@
   </div>
 </div>
 
-<div class="index-container">
-  <p style="color: green"><%= notice %></p>
+<%= render 'lairs/testimonials' %>
 
-  <div id="lair-results" class="lairs-container" data-target="search.results">
+<p style="color: green"><%= notice %></p>
+
+<div class="index-container d-none" data-toggle-target="toggleableElement">
+  <div id="lair-results" class="lairs-container">
     <% @lairs.each do |lair| %>
       <%= link_to lair_path(lair) do %>
         <div class="lair-card">
@@ -28,5 +30,3 @@
     <% end %>
   </div>
 </div>
-
-<%= render 'lairs/testimonials' %>

@@ -7,7 +7,13 @@ export default class extends Controller {
     console.log("Hello from toggle_controller.js")
   }
   fire() {
-    this.toggleableElementTarget.classList.toggle("d-none")
+    // console.log(document.querySelectorAll(".toggleableElement"))
+    // this.toggleableElementTarget.classList.toggle("d-none")
+    // this.toggleableElementTargets.classList.toggle("d-none")
+    this.toggleableElementTargets.forEach((element) => {
+      element.classList.toggle("d-none");
+    });
+    console.log(this.toggleableElementTarget)
   }
   update(event) {
     event.preventDefault();
