@@ -2,6 +2,13 @@
 <div class="bookings-container">
 <h1>Bookings</h1>
 
+<% if @bookings.empty? %>
+  <div>
+    <h3> You have no bookings yet. </h3>
+    <a class="neon-button" data-action="click->toggle#fire" id="no-bookings-button">Book Now!</a>
+  </div>
+<% end %>
+
 <div id="bookings">
   <% @bookings.where(user_id: current_user).each do |booking| %>
     <%= link_to booking_path(booking) do %>
